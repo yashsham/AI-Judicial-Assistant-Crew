@@ -16,7 +16,8 @@ This project implements an advanced, multi-agent AI system designed to assist th
 ## Tech Stack 🛠️
 
 * **Agent Framework:** CrewAI
-* **LLM & Embeddings:** Google Gemini Pro
+* **LLM:** OpenRouter (DeepSeek R1)
+* **Embeddings:** Google Gemini Pro
 * **RAG & Vector Store:** LangChain, ChromaDB
 * **UI Framework:** Streamlit
 * **PDF Processing:** PyPDF
@@ -49,7 +50,8 @@ pip install -r requirements.txt
 **4. Set up your API Key:**
 Create a file named `.env` in the root directory and add your Google API key:
 ```
-GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY_HERE"
+OPENROUTER_API_KEY="YOUR_OPENROUTER_API_KEY_HERE"
 ```
 
 **5. Prepare the Knowledge Base:**
