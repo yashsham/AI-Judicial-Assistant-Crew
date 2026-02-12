@@ -101,9 +101,11 @@ if uploaded_case_files:
             from crewai import LLM
 
             llm = LLM(
-    model="gemini/gemini-2.0-flash",
-    temperature=0.7,
-)
+                model="openrouter/deepseek/deepseek-r1",
+                base_url="https://openrouter.ai/api/v1",
+                api_key=os.getenv("OPENROUTER_API_KEY"),
+                temperature=0.7
+            )           
             
             st.info("Extracting text from your case files...")
             case_text = get_text_from_files(uploaded_case_files)
