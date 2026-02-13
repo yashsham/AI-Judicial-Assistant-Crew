@@ -221,6 +221,13 @@ if uploaded_case_files:
                 st.error("Could not extract any text from the uploaded files. Aborting analysis.")
                 st.stop()
 
+            # --- TRUNCATION SAFETY CHECK ---
+            # Limit to ~100k chars (approx 25k tokens) to prevent context window overflow
+            MAX_CHAR_LIMIT = 100000
+            if len(case_text) > MAX_CHAR_LIMIT:
+                st.warning(f"⚠️ Document is very large ({len(case_text)} chars). Truncating to first {MAX_CHAR_LIMIT} chars to prevent AI analysis crash.")
+                case_text = case_text[:MAX_CHAR_LIMIT]
+
             # --- RUNTIME FALLBACK LOOP ---
             analysis_success = False
             result = None
